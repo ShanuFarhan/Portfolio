@@ -1,4 +1,5 @@
 import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 import { footerContacts } from '../../constants/data';
@@ -54,22 +55,38 @@ const Footer = () => {
   };
 
   return (
-    <>
+    <div className="app__footer" style={{ perspective: 1200, transformStyle: 'preserve-3d' }}>
       <h2 className="head-text">Take a coffee & chat with me</h2>
 
       <div className="app__footer-cards">
-        {footerContacts.map((contact) => (
-          <div className="app__footer-card" key={contact.type}>
+        {footerContacts.map((contact, index) => (
+          <motion.div
+            className="app__footer-card"
+            key={contact.type}
+            initial={{ opacity: 0, rotateY: -30, x: -30 }}
+            whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
+            whileHover={{ scale: 1.05, rotateY: 5, z: 20 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: false }}
+          >
             <img src={contact.icon} alt={contact.type} />
             <a href={contact.href} className="p-text">
               {contact.label}
             </a>
-          </div>
+          </motion.div>
         ))}
       </div>
 
       {!isFormSubmitted ? (
-        <form className="app__footer-form app__flex" onSubmit={handleSubmit}>
+        <motion.form
+          className="app__footer-form app__flex"
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, rotateX: 20, y: 50 }}
+          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          style={{ transformStyle: 'preserve-3d' }}
+        >
           <div className="app__flex">
             <input
               type="text"
@@ -99,16 +116,21 @@ const Footer = () => {
               onChange={handleChangeInput}
             />
           </div>
-          <button type="submit" className="p-text">
+          <motion.button
+            type="submit"
+            className="p-text"
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
+          >
             {loading ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
       ) : (
         <div className="app__footer-form app__flex">
           <h3 className="head-text">Thank you for getting in touch!</h3>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

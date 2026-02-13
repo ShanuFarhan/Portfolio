@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 
-import { works as worksData, workFilters } from '../../constants/data';
+import { workFilters, works as worksData } from '../../constants/data';
 import { AppWrap, MotionWrap } from '../../wrapper';
 
 const Work = () => {
@@ -39,9 +39,8 @@ const Work = () => {
             }}
             role="button"
             tabIndex={0}
-            className={`app__work-filter-item app__flex p-text ${
-              activeFilter === item ? 'item-active' : ''
-            }`}
+            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''
+              }`}
           >
             {item}
           </div>
@@ -52,9 +51,22 @@ const Work = () => {
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__work-portfolio"
+        style={{ perspective: 1000, transformStyle: 'preserve-3d' }}
       >
         {filteredWorks.map((work, index) => (
-          <div className="app__work-item app__flex" key={`${work.title}-${index}`}>
+          <motion.div
+            className="app__work-item app__flex"
+            key={`${work.title}-${index}`}
+            initial={{ opacity: 0, rotateX: -15, y: 30 }}
+            whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+            whileHover={{
+              rotateX: 10,
+              rotateY: 10,
+              scale: 1.05,
+              transition: { duration: 0.3 }
+            }}
+            viewport={{ once: false }}
+          >
             <div className="app__work-img app__flex">
               <img src={work.imgUrl} alt={work.title} />
 
@@ -101,7 +113,7 @@ const Work = () => {
                 <p className="p-text">{work.tags[0]}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </>

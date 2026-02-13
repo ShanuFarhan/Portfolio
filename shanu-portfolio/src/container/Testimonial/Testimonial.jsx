@@ -12,9 +12,8 @@ const Testimonial = () => {
     const normalizedIndex = (index + testimonialsData.length) % testimonialsData.length;
     setCurrentIndex(normalizedIndex);
   };
-
   return (
-    <>
+    <div className="app__testimonial-container" style={{ perspective: 1000, transformStyle: 'preserve-3d' }}>
       <h2 className="head-text">Testimonials</h2>
 
       {testimonial && (
@@ -22,11 +21,15 @@ const Testimonial = () => {
           <motion.div
             key={testimonial.name}
             className="app__testimonial-item app__flex"
-            whileInView={{ opacity: [0, 1] }}
+            initial={{ opacity: 0, rotateX: -20, scale: 0.9 }}
+            whileInView={{ opacity: 1, rotateX: 0, scale: 1 }}
+            whileHover={{ rotateY: 10, rotateX: 5, z: 20 }}
             transition={{ duration: 0.5 }}
+            viewport={{ once: false }}
+            style={{ transformStyle: 'preserve-3d' }}
           >
             {/* <img src={testimonial.imgUrl} alt={testimonial.name} /> */}
-            <div className="app__testimonial-content">
+            <div className="app__testimonial-content" style={{ transformStyle: 'preserve-3d' }}>
               <p className="p-text">{testimonial.feedback}</p>
               <h4 className="bold-text">{testimonial.name}</h4>
               <h5 className="p-text">{testimonial.company}</h5>
@@ -56,7 +59,7 @@ const Testimonial = () => {
           </motion.div>
         ))}
       </div> */}
-    </>
+    </div>
   );
 };
 
