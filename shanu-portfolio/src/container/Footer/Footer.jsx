@@ -29,9 +29,6 @@ const Footer = () => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    // console.log('Service ID:', serviceId);
-    // console.log('Template ID:', templateId);
-    // console.log('Public Key:', publicKey);
 
     const templateParams = {
       from_name: formData.name,
@@ -43,13 +40,11 @@ const Footer = () => {
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
-        // alert(`Message Sent Successfully! Status: ${response.status}`);
         setLoading(false);
         setIsFormSubmitted(true);
       })
       .catch((error) => {
         console.error('FAILED...', error);
-        // alert(`Failed to send message: ${JSON.stringify(error)}`);
         setLoading(false);
       });
   };

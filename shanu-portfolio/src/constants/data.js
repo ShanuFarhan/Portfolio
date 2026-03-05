@@ -5,7 +5,6 @@ export const navLinks = ['home', 'about', 'work', 'skills', 'testimonial', 'cont
 export const socialLinks = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shanu-farhan-1243871b0/', icon: 'linkedin' },
   { name: 'GitHub', url: 'https://github.com/ShanuFarhan', icon: 'github' },
-  // { name: 'Behance', url: '#', icon: 'behance' },
 ];
 
 export const abouts = [
@@ -42,7 +41,7 @@ export const works = [
       'React-based WhatsApp campaign manager with SCSS modules, Redux data flows, and real-time analytics that improved performance and maintainability.',
     projectLink: '#',
     codeLink: '#',
-    imgUrl: images.workViki,
+    imgUrl: images.dummy,
     tags: ['React', 'All'],
   },
   {
@@ -51,30 +50,21 @@ export const works = [
       'Angular modules delivering live customer and property insights to 1,000+ users with reusable components and WCAG-compliant layouts.',
     projectLink: '#',
     codeLink: '#',
-    imgUrl: images.workGreenstyle,
+    imgUrl: images.workCrm,
     tags: ['Angular', 'All'],
   },
   {
-    title: 'Fraud Detection Dashboard',
+    title: 'Saloon Saas Application',
     description:
-      'Multi-signal monitoring UI that correlates behavioral telemetry, boosts diagnostic visibility, and accelerates fraud review workflows.',
-    projectLink: '#',
-    codeLink: '#',
-    imgUrl: images.workMetaversus,
-    tags: ['Design Systems', 'All'],
-  },
-  {
-    title: 'Identity Decisioning Platform',
-    description:
-      'Secure identity verification experience focused on device intelligence, responsive persistence, and audit-ready data narratives.',
-    projectLink: '#',
-    codeLink: '#',
-    imgUrl: images.workHoobank,
-    tags: ['Design Systems', 'All'],
+      'SalonSync is a smart salon management system that simplifies appointment booking, staff scheduling, service management, and customer tracking for modern salons.',
+    projectLink: 'https://styleslot-app.vercel.app',
+    codeLink: 'https://github.com/ShanuFarhan/styleslot-fullstack',
+    imgUrl: images.workStyleslot,
+    tags: ['Angular', 'All'],
   },
 ];
 
-export const workFilters = ['React', 'Angular', 'Design Systems', 'All'];
+export const workFilters = ['React', 'Angular', 'All'];
 
 export const skills = [
   { name: 'JavaScript (ES6+)', icon: images.javascript },
@@ -104,16 +94,6 @@ export const experiences = [
       },
     ],
   },
-  // {
-  //   year: '2018 — 2022',
-  //   works: [
-  //     {
-  //       name: 'B.Tech Computer Science',
-  //       company: 'Royal College of Engineering & Technology, Kerala',
-  //       desc: 'Graduated with a focus on scalable web application design, data visualization, and collaborative engineering practices.',
-  //     },
-  //   ],
-  // },
 ];
 
 export const testimonials = [
@@ -122,15 +102,7 @@ export const testimonials = [
     company: 'Leadrat Technologies',
     feedback:
       '"Shanu elevated our analytics experience—UI performance improved 30% and fraud analysts gained clearer visibility into real-time signals."',
-    imgUrl: images.redux,
   },
-];
-
-export const brands = [
-  { name: 'Leadrat', imgUrl: images.brandInfolks },
-  { name: 'FraudTech', imgUrl: images.brandEmpire },
-  { name: 'Decision Systems', imgUrl: images.brandOxygen },
-  { name: 'Data Trust', imgUrl: images.brandSanity },
 ];
 
 export const footerContacts = [
