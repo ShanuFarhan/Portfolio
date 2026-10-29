@@ -1,0 +1,4 @@
+[build]
+  base = "shanu-portfolio"
+  command = "npm install && npm run build"
+  publish = "dist"
